@@ -2,9 +2,9 @@ from dataclasses import dataclass
 from datetime import date
 from typing import List, Optional 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class OrderLine:
-    Orderid: str
+    orderid: str
     sku : str
     qty : int
 

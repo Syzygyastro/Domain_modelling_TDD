@@ -1,11 +1,12 @@
 from sqlalchemy import Table, MetaData, Column, Integer, String, Date, ForeignKey
-from sqlalchemy.orm import mapper, relationship
-
+from sqlalchemy.orm import registry, relationship
 import model
 
-
+# Set up the metadata and registry
 metadata = MetaData()
+mapper_registry = registry()
 
+# Define the tables
 order_lines = Table(
     "order_lines",
     metadata,
@@ -33,15 +34,15 @@ allocations = Table(
     Column("batch_id", ForeignKey("batches.id")),
 )
 
-
+# Define the mappers
 def start_mappers():
-    lines_mapper = mapper(model.OrderLine, order_lines)
-    mapper(
+    mapper_registry.map_imperatively(model.OrderLine, order_lines)
+    mapper_registry.map_imperatively(
         model.Batch,
         batches,
         properties={
             "_allocations": relationship(
-                lines_mapper,
+                model.OrderLine,
                 secondary=allocations,
                 collection_class=set,
             )

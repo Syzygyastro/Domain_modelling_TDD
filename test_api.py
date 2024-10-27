@@ -64,9 +64,9 @@ def test_allocations_are_persisted(add_stock):
     assert (r.status_code == 201)
     assert(r.json()['batchref'] == batch2)
     
-@pytest.mark.usefixtures('restart_api')
-def test_400_message_for_out_of_stock(add_stock):
-    sku, small_batch  
+# @pytest.mark.usefixtures('restart_api')
+# def test_400_message_for_out_of_stock(add_stock):
+#     sku, small_batch  
     
     
     

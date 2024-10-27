@@ -3,10 +3,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 import config
-import model
-import orm
-import services
-import repository
+import domain.model as model
+import adapters.orm as orm
+import service_layer.services as services
+import adapters.repository as repository
 
 
 

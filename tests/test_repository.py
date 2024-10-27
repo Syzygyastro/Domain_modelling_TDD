@@ -1,6 +1,6 @@
 from datetime import date, timedelta
-from model import Batch, OrderLine, allocate, OutOfStock
-import repository
+from domain.model import Batch, OrderLine, allocate, OutOfStock
+import adapters.repository as repository
 
 
 def test_repository_can_save_a_batch(session):

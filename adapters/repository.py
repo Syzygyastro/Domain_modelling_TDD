@@ -1,6 +1,6 @@
 
 import abc
-import model
+import domain.model as model
 
 
 class AbstractRepository(abc.ABC):
@@ -25,6 +25,6 @@ class SqlRespository(AbstractRepository):
     
     def list(self):
         return self.session.query(model.Batch).all()
-    
+
     
         

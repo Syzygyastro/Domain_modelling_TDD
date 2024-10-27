@@ -1,6 +1,6 @@
 from sqlalchemy import Table, MetaData, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import registry, relationship
-import model
+import domain.model as model
 
 # Set up the metadata and registry
 metadata = MetaData()
